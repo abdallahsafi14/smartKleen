@@ -1,14 +1,10 @@
 import { useParams } from "react-router-dom";
-import ServiceGallery from "../Service-gallery";
-import { galleryData } from "../../dummyData/galleryData";
 import { cleanServices } from "../../dummyData/cleanServices";
 import styled from "styled-components";
 import AppTemplate from "../app-template";
 
 const Service = () => {
   const { serviceName } = useParams();
-
-  const gallery = galleryData.find((g) => g.serviceKey === serviceName);
 
   const service = cleanServices.find(
     (s) => s.name.toLowerCase().replace(/\s+/g, "-") === serviceName
@@ -23,22 +19,17 @@ const Service = () => {
       footer={true}
       SEOPageName={serviceName}
     >
-    <Wrapper>
-      <ContentCard>
-        <ImageContainer>
-          <img src={service.image} alt={service.name} />
-        </ImageContainer>
-        <Info>
-          <h1>{service.name}</h1>
-          <p>{service.description}</p>
-        </Info>
-      </ContentCard>
-
-      <GallerySection>
-        <h2>Gallery</h2>
-        <ServiceGallery images={gallery?.items || []} />
-      </GallerySection>
-    </Wrapper>
+      <Wrapper>
+        <ContentCard>
+          <ImageContainer>
+            <img src={service.image} alt={service.name} />
+          </ImageContainer>
+          <Info>
+            <h1>{service.name}</h1>
+            <p>{service.description}</p>
+          </Info>
+        </ContentCard>
+      </Wrapper>
     </AppTemplate>
   );
 };
@@ -87,7 +78,7 @@ const Info = styled.div`
     margin-bottom: 1rem;
     color: #222;
   }
-  
+
   p {
     font-size: 1rem;
     line-height: 1.6;
@@ -95,23 +86,11 @@ const Info = styled.div`
   }
   h1 {
     text-align: center;
-      }
-  @media (max-width:768px){
+  }
+  @media (max-width: 768px) {
     p {
       text-align: center;
     }
-
-  }
-`;
-
-const GallerySection = styled.div`
-  margin-top: 2rem;
-
-  h2 {
-    font-size: 1.5rem;
-    font-weight: 600;
-    margin-bottom: 1rem;
-    color: #222;
   }
 `;
 

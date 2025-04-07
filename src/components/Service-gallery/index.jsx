@@ -6,15 +6,15 @@ export default function ServiceGallery({ images }) {
     <Gallery>
       {images.map((pair, index) => (
         <ImagePair key={index}>
-          <h4>{pair.label}</h4>
+          {/* <h4>{pair.label}</h4> */}
           <ImageGrid>
             <ImageBlock>
               <p>Before</p>
-              <StyledImage src={pair.before} alt={`Before - ${pair.label}`} />
+              <StyledImage src={pair.before} alt={`Before`} />
             </ImageBlock>
             <ImageBlock>
               <p>After</p>
-              <StyledImage src={pair.after} alt={`After - ${pair.label}`} />
+              <StyledImage src={pair.after} alt={`After`} />
             </ImageBlock>
           </ImageGrid>
         </ImagePair>
@@ -79,8 +79,8 @@ const ImageBlock = styled.div`
 `;
 
 const StyledImage = styled.img`
-  width: 100%;
-  max-height: 220px;
+  width: 40vw;
+  aspect-ratio: 9/16;
   object-fit: cover;
   border-radius: 12px;
   transition: transform 0.3s ease;
