@@ -1,9 +1,9 @@
-import Contacts from "../pages/Contacts";
 
 const PathConstants = {
   Home: "/",
   AboutUs: "/about",
   Contacts: "/contacts",
+  Service:"/services/:serviceName"
 
  
 };  

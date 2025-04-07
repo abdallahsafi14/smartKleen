@@ -1,4 +1,3 @@
-import React from "react";
 import AppTemplate from "../../components/app-template";
 import { Styles } from "./Styles";
 import { motion } from "framer-motion";
@@ -57,7 +56,7 @@ const AboutUs = () => {
               <strong>
                 At Smart Kleen Inc., we are dedicated to providing top-quality hood exhaust cleaning
                 services for commercial kitchens. With years of experience in the industry, our team
-                is committed to delivering exceptional results and exceeding our clients' expectations.
+                is committed to delivering exceptional results and exceeding our clients&apos; expectations.
               </strong>
             </motion.p>
 

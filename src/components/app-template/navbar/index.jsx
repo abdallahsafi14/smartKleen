@@ -1,4 +1,3 @@
-import React from "react";
 import { Navbar, Container, Nav } from "react-bootstrap";
 import { Link, NavLink } from "react-router-dom"; 
 import { NavbarContainer } from "./styles";
@@ -16,7 +15,7 @@ const SiteNavbar = () => {
           <Navbar.Collapse id="basic-navbar-nav">
             <Nav className="nav-content ms-auto">
               <NavLink exact to="/" className={({ isActive }) => isActive ? "active" : ""}>Home</NavLink>
-              <NavLink to="/about" className={({ isActive }) => isActive ? "active" : ""}>About Us</NavLink>
+              {/* <NavLink to="/about" className={({ isActive }) => isActive ? "active" : ""}>About Us</NavLink> */}
               <NavLink to="/contacts" className={({ isActive }) => isActive ? "active" : ""}>Contacts</NavLink>
             </Nav>
           </Navbar.Collapse>

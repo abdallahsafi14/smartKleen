@@ -1,4 +1,3 @@
-import React from "react";
 import AppTemplate from "../../components/app-template";
 import PageNotFoundComponent from "../../components/errors-components/page-not-found";
 

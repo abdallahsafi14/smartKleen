@@ -1,4 +1,3 @@
-import React from "react";
 import AppTemplate from "../../components/app-template";
 import { useFormik } from "formik";
 import * as Yup from "yup";

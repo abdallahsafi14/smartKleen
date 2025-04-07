@@ -1,4 +1,3 @@
-import React from "react";
 import { motion } from "framer-motion";
 import AppTemplate from "../../components/app-template";
 import { Carousel } from "primereact/carousel";
@@ -9,7 +8,7 @@ import kitchenCleaningImage from "../../assets/images/Kitchen-Cleaning.jpg";
 import commercialImage from "../../assets/images/commercial.jpg";
 
 import { Styles } from "./Styles";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { FaPhoneAlt } from "react-icons/fa";
 
 const cleanServices = [
@@ -52,19 +51,36 @@ const cleanServices = [
 
 
 const Home = () => {
-  const serviceTemplate = (service) => (
-    <Card className="service-card">
-      <div className="image-container">
-        <img src={service.image} alt={service.name} />
-      </div>
-      <div className="text-content">
-        <h3 className="service-title">{service.name}</h3>
-        <p className="service-description">{service.description}</p>
-      </div>
-    </Card>
-  );
+  const navigate = useNavigate();
+  const slugify = (text) => text.toLowerCase().replace(/\s+/g, "-");
 
+  const serviceTemplate = (service) => {
+    const slug = slugify(service.name);
+    return (
+      <motion.div whileHover={{ scale: 1.02 }}>
+      <Card
+        className="service-card"
+        style={{ cursor: "pointer" }}
+        onClick={() => navigate(`/services/${slug}`)}
+      >
+        <div className="image-container">
+          <img src={service.image} alt={service.name} />
+        </div>
+        <div className="text-content">
+          <h3 className="service-title">{service.name}</h3>
+          <p className="service-description">{service.description}</p>
+        </div>
+      </Card>
+    </motion.div>
+    );
+  };
+  
   const responsiveOptions = [
+    {
+      breakpoint: "1200px",
+      numVisible: 3,
+      numScroll: 1,
+    },
     {
       breakpoint: "960px",
       numVisible: 2,
@@ -99,7 +115,7 @@ const Home = () => {
           >
             <Carousel
               value={cleanServices}
-              numVisible={3}
+              numVisible={4}
               numScroll={1}
               circular
               autoplayInterval={3000}
