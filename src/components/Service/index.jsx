@@ -87,12 +87,15 @@ const Info = styled.div`
     margin-bottom: 1rem;
     color: #222;
   }
-
+  
   p {
     font-size: 1rem;
     line-height: 1.6;
     color: #555;
   }
+  h1 {
+    text-align: center;
+      }
   @media (max-width:768px){
     p {
       text-align: center;
