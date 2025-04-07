@@ -93,6 +93,12 @@ const Info = styled.div`
     line-height: 1.6;
     color: #555;
   }
+  @media (max-width:768px){
+    p {
+      text-align: center;
+    }
+
+  }
 `;
 
 const GallerySection = styled.div`
