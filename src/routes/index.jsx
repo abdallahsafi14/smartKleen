@@ -13,7 +13,7 @@ const router = createBrowserRouter(
   [
     {
       element: <Layout />,
-      errorElement: <Navigate to={PathConstants.Home} replace />, // Redirect to home on error
+      errorElement: <Navigate to={PathConstants.Home} replace />,
       children: [
         {
           path: PathConstants.Home,
@@ -35,7 +35,6 @@ const router = createBrowserRouter(
           path: PathConstants.OurWorks,
           element: <OurWorks />,
         },
-        // Add a catch-all route that redirects to home
         {
           path: "*",
           element: <Navigate to={PathConstants.Home} replace />,

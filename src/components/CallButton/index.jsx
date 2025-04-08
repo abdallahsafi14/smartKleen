@@ -6,7 +6,6 @@ export function CallButton() {
   return (
     <Styles>
       <div className="button-container-com">
-        {/* Always render both, show/hide with CSS */}
         <a href="tel:647-608-1111" className="call-link-com mobile-call">
           <FaPhoneAlt style={{ marginRight: "8px" }} />
           Call Us
