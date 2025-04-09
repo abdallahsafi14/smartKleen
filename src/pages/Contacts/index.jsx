@@ -10,21 +10,52 @@ const Contacts = () => {
     initialValues: {
       name: "",
       email: "",
-      message: ""
+      message: "",
     },
     validationSchema: Yup.object({
-      name: Yup.string().max(50, "Must be 50 characters or less").required("Required"),
+      name: Yup.string()
+        .max(50, "Must be 50 characters or less")
+        .required("Required"),
       email: Yup.string().email("Invalid email address").required("Required"),
-      message: Yup.string().min(10, "Message must be at least 10 characters").required("Required")
+      message: Yup.string()
+        .min(10, "Message must be at least 10 characters")
+        .required("Required"),
     }),
     onSubmit: (values, { resetForm }) => {
-      console.log("Form submitted:", values);
-      resetForm();
-    }
+      const { name, email, message } = values;
+
+      window.Email.send({
+        Host: import.meta.env.VITE_SMTP_HOST,
+        Username: import.meta.env.VITE_SMTP_USER,
+        Password: import.meta.env.VITE_SMTP_PASS,
+        To: import.meta.env.VITE_SMTP_TO,
+        From: import.meta.env.VITE_SMTP_FROM,
+        Subject: "New Contact Form Submission",
+        Body: `
+          <p><strong>Name:</strong> ${name}</p>
+          <p><strong>Email:</strong> ${email}</p>
+          <p><strong>Message:</strong><br/>${message}</p>
+        `,
+      }).then(
+        () => {
+          alert("Message sent successfully!");
+          resetForm();
+        },
+        (error) => {
+          console.error("SMTP Error:", error);
+          alert("Failed to send message. Please try again later.");
+        }
+      );
+    },
   });
 
   return (
-    <AppTemplate pageTitle="Contacts" navbar={true} footer={true} SEOPageName="Contacts">
+    <AppTemplate
+      pageTitle="Contacts"
+      navbar={true}
+      footer={true}
+      SEOPageName="Contacts"
+    >
       <Styles>
         <ContactsWrapper>
           <motion.div
@@ -168,7 +199,7 @@ const Label = styled.label`
 
 const Input = styled.input`
   padding: 0.75rem 1rem;
-  border: 1px solid ${props => (props.$error ? "#e74c3c" : "#ddd")};
+  border: 1px solid ${(props) => (props.$error ? "#e74c3c" : "#ddd")};
   border-radius: 8px;
   font-size: 1rem;
   transition: all 0.3s ease;
@@ -182,7 +213,7 @@ const Input = styled.input`
 
 const TextArea = styled.textarea`
   padding: 0.75rem 1rem;
-  border: 1px solid ${props => (props.$error ? "#e74c3c" : "#ddd")};
+  border: 1px solid ${(props) => (props.$error ? "#e74c3c" : "#ddd")};
   border-radius: 8px;
   font-size: 1rem;
   transition: all 0.3s ease;
