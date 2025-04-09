@@ -6,12 +6,18 @@ import Im3Clean from "../assets/images/GalleryImage/3-clean2.jpeg";
 import Im3Dirty from "../assets/images/GalleryImage/3-dirty.jpeg";
 import Im4Clean from "../assets/images/GalleryImage/4-clean4.jpeg";
 import Im4Dirty from "../assets/images/GalleryImage/4-dirty.jpeg";
+import Im4Clean2 from "../assets/images/GalleryImage/4-clean.jpeg";
+import Im4Dirty2 from "../assets/images/GalleryImage/4-dirty2.jpeg";
 import Im5Clean from "../assets/images/GalleryImage/5-clean2.jpeg";
 import Im5Dirty from "../assets/images/GalleryImage/5-dirty.jpeg";
+import Im5Clean2 from "../assets/images/GalleryImage/5-clean3.jpeg";
+import Im5Dirty2 from "../assets/images/GalleryImage/5-dirty2.jpeg";
 import Im6Clean from "../assets/images/GalleryImage/6-clean.jpeg";
 import Im6Dirty from "../assets/images/GalleryImage/6-dirty.jpeg";
 import Im7Clean from "../assets/images/GalleryImage/7-clean.jpeg";
 import Im7Dirty from "../assets/images/GalleryImage/7-dirty.jpeg";
+import Im8Clean from "../assets/images/GalleryImage/8-clean.jpeg";
+import Im8Dirty from "../assets/images/GalleryImage/8-dirty.jpeg";
 
 export const galleryData = [
   {
@@ -48,6 +54,21 @@ export const galleryData = [
     id: 7,
     before: Im7Dirty,
     after: Im7Clean,
+  },
+  {
+    id: 8,
+    before: Im8Dirty,
+    after: Im8Clean,
+  },
+  {
+    id: 9,
+    before: Im5Dirty2,
+    after: Im5Clean2,
+  },
+  {
+    id: 10,
+    before: Im4Dirty2,
+    after: Im4Clean2,
   },
 ];
 
