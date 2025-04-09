@@ -17,6 +17,16 @@ const Footer = () => {
 
           <div className="footer-copyright">
             <p>© 2024 smartkleeninc.ca</p>
+            <p>
+              Powered by{" "}
+              <a
+                href="https://zedni.ca"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Zedni
+              </a>
+            </p>
           </div>
         </div>
       </footer>
@@ -63,6 +73,16 @@ const Styles = styled.div`
 
   .footer-copyright p {
     margin: 0.2rem 0;
+  }
+
+  .footer a {
+    color: #1abc9c;
+    text-decoration: none;
+    font-weight: 500;
+  }
+
+  .footer a:hover {
+    text-decoration: underline;
   }
 
   @media (max-width: 768px) {
